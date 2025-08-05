@@ -35,3 +35,11 @@ dpos 委托权益证明：通过投票机制选举特定数量的代表，持币
 
 非对称加密： 公钥、私钥，互补可以用其中一个加密，另一个解密，    
 hash： 长度固定，不可逆，分布均匀，变化巨大
+
+
+
+
+
+水龙头： https://cloud.google.com/application/web3/
+测试网： https://sepolia.etherscan.io/
+https://etherscan.io/

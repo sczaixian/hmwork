@@ -32,7 +32,7 @@ func foo2(input *[]int) {  // Go中的切片已经是引用类型
 // 编写一个程序，使用 go 关键字启动两个协程，一个协程打印从1到10的奇数，另一个协程打印从2到10的偶数
 func goRoutine(){
 	var wg sync.WaitGroup
-	wg.add(2)
+	wg.Add(2)
 
     go func(){
 		defer wg.Done()  // 每个协程结束时调用 wg.Done()
