@@ -1,4 +1,3 @@
-
 package main
 
 import (
@@ -14,69 +13,65 @@ import (
 
 type Task func()
 
-
-type TaskResult struct{
-	taskId int
+type TaskResult struct {
+	taskId    int
 	startTime time.Time
-	endTime time.Time
-	duration time.Duration
+	endTime   time.Time
+	duration  time.Duration
 }
 
-type Scheduler struct{
-	tasks []Task
-	results []TaskResult
-	wg sync.WaitGroup
+type Scheduler struct {
+	tasks     []Task
+	results   []TaskResult
+	wg        sync.WaitGroup
 	startTime time.Time
 }
 
-
-func newScheduler(tasks []Task) *Scheduler{
+func newScheduler(tasks []Task) *Scheduler {
 	return &Scheduler{
-		tasks: tasks,
-		results: make([]TaskResult, len(tasks))
+		tasks:   tasks,
+		results: make([]TaskResult, len(tasks)),
 	}
 }
 
-func (s *Scheduler) executeTask(id int, task Task){
+func (s *Scheduler) executeTask(id int, task Task) {
 	defer s.wg.Done()
 	start := time.Now()
 	task()
 	end := time.Now()
 
 	s.results[id] = TaskResult{
-		taskId: id,
+		taskId:    id,
 		startTime: start,
-		endTime: end,
-		duration: end.Sub(start)
+		endTime:   end,
+		duration:  end.Sub(start),
 	}
 }
 
-func (s *Scheduler) printResult(){
+func (s *Scheduler) printResult() {
 	fmt.Println("------- result --------")
 	for _, result := range s.results {
 		fmt.Printf(
 			"任务id:%d, 任务开始时间:%v, 任务结束时间:%v, 任务持续时间:%v; \n",
-			result.taskId, 
-			result.startTime.Format("15:04:05.000"), 
-			result.endTime.Format("15:04:05.000"), 
+			result.taskId,
+			result.startTime.Format("15:04:05.000"),
+			result.endTime.Format("15:04:05.000"),
 			result.duration,
 		)
 	}
 	fmt.Println("执行总时长：", time.Since(s.startTime))
 }
 
-
 func (s *Scheduler) run() {
 	s.startTime = time.Now()
-	for i, task := range s.tasks{
+	for i, task := range s.tasks {
 		s.wg.Add(1)
 		go s.executeTask(i, task)
 	}
 	s.wg.Wait()
 }
 
-
-func main(){
+func main() {
 	// 示例任务定义
 	tasks := []Task{
 		func() {

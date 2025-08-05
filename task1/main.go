@@ -1,64 +1,61 @@
+package main
 
-
+import "sort"
 
 func twoSum(nums []int, target int) []int {
-    idx_map := make(map[int]int)
-    for idx, val := range nums {
-        complement := target - val 
-        if targ_idx, exists := idx_map[complement]; exists{
-            return []int{idx, targ_idx}
-        }
-        idx_map[val] = idx 
-    }
-    return nil
+	idx_map := make(map[int]int)
+	for idx, val := range nums {
+		complement := target - val
+		if targ_idx, exists := idx_map[complement]; exists {
+			return []int{idx, targ_idx}
+		}
+		idx_map[val] = idx
+	}
+	return nil
 }
 
 /*
- :=  声明一个变量并初始化它。它的全称是“短变量声明” 
-        不能在函数外使用短声明  
-        自动推断，不可指定类型   
+ :=  声明一个变量并初始化它。它的全称是“短变量声明”
+        不能在函数外使用短声明
+        自动推断，不可指定类型
         必须初始化
         类型确定不能更改
-        
- 不能重复声明  
+
+ 不能重复声明
 {
     var x int
     x:= 10  // 重复声明
 }
 
-var 不限制声明，可以在函数外 
+var 不限制声明，可以在函数外
 
 map初始化    make   ；  中括号 [int]int
 返回临时数组   []int{...}
 */
 
-
-
-
 func merge(intervals [][]int) [][]int {
-     if len(intervals) == 0{
+	if len(intervals) == 0 {
 		return intervals
 	}
 
 	sort.Slice(intervals, func(i, j int) bool {
 		return intervals[i][0] < intervals[j][0]
 	})
-    
-	res := [][] int{}
+
+	res := [][]int{}
 	mb := intervals[0]
 
 	for _, val := range intervals[1:] {
-		if val[0] <= mb[1]{
+		if val[0] <= mb[1] {
 			mb[1] = val[1]
-		}else{
+		} else {
 			res = append(res, mb)
-			mb = val 
+			mb = val
 		}
 	}
-    res = append(res, mb)
-    return res
+	res = append(res, mb)
+	return res
 }
-
 
 /**
 sort.Slice 排序
@@ -66,35 +63,30 @@ sort.Slice 排序
 res = append(res, mb)
 */
 
-
-
 func removeDuplicates(nums []int) int {
-    idx := 0
-    for _, val := range nums{
-        if val != nums[idx]{
-            idx += 1
-            nums[idx] = val
-        }
-    }
-    return idx+1
+	idx := 0
+	for _, val := range nums {
+		if val != nums[idx] {
+			idx += 1
+			nums[idx] = val
+		}
+	}
+	return idx + 1
 }
 
-
-
-
 func plusOne(digits []int) []int {
-    for i := len(digits) - 1; i >= 0; i-- {
-        if digits[i] < 9{
-            digits[i]++
-            return digits
-        }
-        digits[i] = 0
-    }
-    return append([]int{1}, digits...)
+	for i := len(digits) - 1; i >= 0; i-- {
+		if digits[i] < 9 {
+			digits[i]++
+			return digits
+		}
+		digits[i] = 0
+	}
+	return append([]int{1}, digits...)
 }
 
 /*
-	数组倒序的方法 
+	数组倒序的方法
 	1、从后往前便利；
 	for i := len(digits) - 1; i >= 0; i-- {}
 	2、翻转后输出
@@ -116,26 +108,21 @@ func plusOne(digits []int) []int {
 		copy(news[1:], slice)
 */
 
-
-
-
-
 func longestCommonPrefix(strs []string) string {
-    prefix := strs[0]
-    for k := 0; k < len(strs); k++ {
-        for j := 0; j < len(prefix); j++ {
-            if j >= len(strs[k]) || strs[k][j] != prefix[j] {
-                prefix = prefix[:j]
-                break
-            }
-        }
-        if prefix == "" {
-            return ""
-        }
-    }
-    return prefix
+	prefix := strs[0]
+	for k := 0; k < len(strs); k++ {
+		for j := 0; j < len(prefix); j++ {
+			if j >= len(strs[k]) || strs[k][j] != prefix[j] {
+				prefix = prefix[:j]
+				break
+			}
+		}
+		if prefix == "" {
+			return ""
+		}
+	}
+	return prefix
 }
-
 
 /*
 字符串 切分： strings.Split("a,b,c", ",")      // ["a", "b", "c"]
@@ -150,33 +137,27 @@ strconv :  Atoi 转 int   Itoa 转字符串
 strings.TrimSpace(s)
 */
 
-
-
-
 func isPalindrome(x int) bool {
-    if (x < 0)  || (x % 10 == 0 ) {
-        return false
-    }
+	if (x < 0) || (x%10 == 0) {
+		return false
+	}
 
-    rev := 0
-    for rev < x / 10{
-        rev =  rev * 10 + x % 10
-        x /= 10
-    }
+	rev := 0
+	for rev < x/10 {
+		rev = rev*10 + x%10
+		x /= 10
+	}
 
-    return  rev == x || rev == x /10
+	return rev == x || rev == x/10
 }
 
-
-
-
 func singleNumber(nums []int) int {
-    if len(nums) == 0 {
-        return 0
-    }
-    sta := nums[0]
-    for _, item:= range nums[1:]{       // _, item 
-        sta ^= item
-    }
-    return sta
+	if len(nums) == 0 {
+		return 0
+	}
+	sta := nums[0]
+	for _, item := range nums[1:] { // _, item
+		sta ^= item
+	}
+	return sta
 }

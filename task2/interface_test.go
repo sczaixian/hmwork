@@ -1,6 +1,5 @@
-
-
 package main
+
 import (
 	"fmt"
 	"math"
@@ -23,11 +22,11 @@ type Circle struct {
 	radius float64
 }
 
-func (r Rectangle) Area() float64{
+func (r Rectangle) Area() float64 {
 	return r.length * r.width
 }
 
-func (r Rectangle) Perimeter() float64{
+func (r Rectangle) Perimeter() float64 {
 	return 2 * (r.length + r.width)
 }
 
@@ -35,20 +34,20 @@ func (c Circle) Area() float64 {
 	return math.Pi * c.radius * c.radius
 }
 
-func (c Circle) Perimeter() float64{
+func (c Circle) Perimeter() float64 {
 	return 2 * math.Pi * c.radius
 }
 
-func main(){
+func main() {
 	rect := Rectangle{
-		length: 20, width:20
+		length: 20, width: 20,
 	}
 	circle := Circle{
-		radius: 5
+		radius: 5,
 	}
 
 	shapes := []Shape{
-		rect, circle
+		rect, circle,
 	}
 
 	for _, shape := range shapes {
