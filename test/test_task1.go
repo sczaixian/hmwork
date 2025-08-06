@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"sort"
 )
 
 func two_sum(nums []int, target int) []int {
@@ -36,40 +37,39 @@ func merge(intervals [][]int) [][]int {
 	for _, item := range intervals[1:] {
 		if tmp[1] > item[0] && item[1] > tmp[1] {
 			tmp[1] = item[1]
-		}else{
+		} else {
 			res = append(res, tmp)
 			tmp = item
 		}
 	}
 	res = append(res, tmp)
-	return res 
+	return res
 }
 
 func removeDuplicates(nums []int) int {
-	if len(nums < 2) { return len(nums) }
+	if len(nums < 2) {
+		return len(nums)
+	}
 	l := 0
 	for _, num := range nums[1:] {
 		if nums[l] != num {
 			l += 1
-			nums[l] = num 
+			nums[l] = num
 		}
 	}
-	return l+1
+	return l + 1
 }
 
-
 func plusOne(nums []int) []int {
-	for i := len(nums) - 1; i >= 0; i--{
+	for i := len(nums) - 1; i >= 0; i-- {
 		if nums[i] < 9 {
 			nums[i] += 1
 			return nums
 		}
 		nums[i] = 0
 	}
-	return append([]int{1}, nums...)  // 
+	return append([]int{1}, nums...) //
 }
-
-
 
 func main() {
 	fmt.Println("Hello World")

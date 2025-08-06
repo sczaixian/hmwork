@@ -1,18 +1,16 @@
-
 package main
 
-
-
 import (
-	"hmwork/orm/conn"
 	"fmt"
+	"hmwork/orm/conn"
+	"hmwork/orm/create"
 )
 
-func main(){
+func main() {
 	db := conn.InitDB()
 	fmt.Println(db)
+	create.Run(db)
 }
-
 
 /*
 import (
@@ -27,7 +25,7 @@ func main(){
 
 导包问题：
 go mod init  hmwork
-必须将函数名改为大写开头，不然到不进去
+必须将函数名改为大写开头，不然导不进去
 不支持相对路径
 
 */
