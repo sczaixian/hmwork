@@ -6,7 +6,7 @@ import (
 	"gorm.io/gorm"
 )
 
-func initDB(){
+func InitDB(){
 	dsn:= "root:123@tcp(127.0.0.1:3306)/test02?charset=utf8mb4&parseTime=True&loc=Local"
 	db, err:= gorm.Open(mysql.Open(dsn), &gorm.Config{})
 	fmt.Println(db, err)

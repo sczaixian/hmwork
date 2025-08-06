@@ -1,0 +1,9 @@
+
+
+
+当命名（包括常量、变量、类型、函数名、结构字段等等）以一个大写字母开头
+单个函数的结构名以 “er” 作为后缀，例如 Reader , Writer
+如果变量为私有，且特有名词为首个单词，则使用小写，如 apiClient
+其它情况都应当使用该名词原有的写法，如 APIClient、repoID、UserID
+错误示例：UrlArray，应该写成 urlArray 或者 URLArray
+若变量类型为 bool 类型，则名称应以 Has, Is, Can 或 Allow 开头

@@ -3,6 +3,6 @@ package test
 
 import "fmt"
 
-func test_hello(){
+func TestHello(){
 	fmt.Println("hello-test!!")
 }
