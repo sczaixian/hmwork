@@ -16,6 +16,9 @@ func demo1() {
 	wg.Add(2)
 
 	go func() {
+		// defer是Go语言中的一个关键字，用于延迟函数的执行。
+		// 它通常用于在函数结束时执行一些清理工作，如关闭文件、释放资源等。
+		// defer语句会将其后的函数调用推迟到包含它的函数执行完毕时执行。
 		defer wg.Done() // 协程结束时通知WaitGroup
 		defer close(ch)
 		for i := 0; i < 10; i++ {

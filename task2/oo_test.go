@@ -12,6 +12,11 @@ import (
 /*
 继承：  is-a
 组合：  has-a
+
+使用结构体和方法 实现面相对像
+如果需要修改结构体的值，使用指针接收者
+组合式继承
+接口实现多态（隐式）
 */
 
 type Person struct {
@@ -34,8 +39,8 @@ func main() {
 	e := Employee{
 		Person{
 			name: "Jack",
-			age:  20, // ,
-		}, // ,
+			age:  20, 
+		}, 
 		employeeId: 2001,
 	}
 	e.printInfo()

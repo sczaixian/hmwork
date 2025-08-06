@@ -1,0 +1,26 @@
+
+
+
+镜像
+https://goproxy.cn,direct
+https://mirrors.aliyun.com/goproxy/
+https://goproxy.io,direct
+
+
+win
+go env -w GO111MODULE=on
+go env -w GOPROXY=https://mirrors.aliyun.com/goproxy/
+
+
+mac&linux
+export GO111MODULE=on
+export GOPROXY=https://mirrors.aliyun.com/goproxy/
+
+
+
+go mod init hmwork  # 生产 go.mod
+
+
+
+git rm --cached go.mod
+git add -f go.mod
