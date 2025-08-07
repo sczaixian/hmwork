@@ -7,3 +7,5 @@
 其它情况都应当使用该名词原有的写法，如 APIClient、repoID、UserID
 错误示例：UrlArray，应该写成 urlArray 或者 URLArray
 若变量类型为 bool 类型，则名称应以 Has, Is, Can 或 Allow 开头
+
+并发编程、网络编程、内存管理
