@@ -19,8 +19,9 @@ export GOPROXY=https://mirrors.aliyun.com/goproxy/
 
 
 go mod init hmwork  # 生产 go.mod
-
+go mod tidy         # 同步依赖
 
 
 git rm --cached go.mod
 git add -f go.mod
+

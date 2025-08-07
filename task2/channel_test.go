@@ -60,7 +60,7 @@ func demo2() {
 			)
 		}
 		fmt.Println("finish producer!")
-	}
+	}()
 
 	go func() {
 		defer wg.Done()
@@ -70,7 +70,7 @@ func demo2() {
 			)
 		}
 		fmt.Println("finish consumer!")
-	}
+	}()
 
 	wg.Wait()
 	fmt.Println("finish!")
