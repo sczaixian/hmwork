@@ -92,7 +92,7 @@ CREATE TABLE `blogs` (
 
 type Blog2 struct {
 	ID      uint
-	Author  Author `gorm:"embedded;embedded_prefix:author_"`
+	Author  Author `gorm:"embedded;embedded_prefix:author_"`   // 给 这张表中 Author中的属性字段前 加上前缀
 	Upvotes int32
 }
 

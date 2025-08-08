@@ -12,7 +12,7 @@ func main() {
 	create.Run(db)
 }
 
-/*
+/*  导包问题
 import (
 	"hmwork/orm/test"
 )

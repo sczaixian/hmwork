@@ -2,6 +2,7 @@ package main
 
 import "sort"
 
+// 两数和
 func twoSum(nums []int, target int) []int {
 	idx_map := make(map[int]int)
 	for idx, val := range nums {
@@ -14,7 +15,7 @@ func twoSum(nums []int, target int) []int {
 	return nil
 }
 
-/*
+/*  遇到的问题
  :=  声明一个变量并初始化它。它的全称是“短变量声明”
         不能在函数外使用短声明
         自动推断，不可指定类型
@@ -33,6 +34,9 @@ map初始化    make   ；  中括号 [int]int
 返回临时数组   []int{...}
 */
 
+
+
+//  合并区间：
 func merge(intervals [][]int) [][]int {
 	if len(intervals) == 0 {
 		return intervals
@@ -57,12 +61,15 @@ func merge(intervals [][]int) [][]int {
 	return res
 }
 
-/**
+/** 遇到的问题
 sort.Slice 排序
 二维数组 [][]int
 res = append(res, mb)
 */
 
+
+
+// 删除有序数组中的重复项：
 func removeDuplicates(nums []int) int {
 	idx := 0
 	for _, val := range nums {
@@ -73,7 +80,7 @@ func removeDuplicates(nums []int) int {
 	}
 	return idx + 1
 }
-
+// 加一 
 func plusOne(digits []int) []int {
 	for i := len(digits) - 1; i >= 0; i-- {
 		if digits[i] < 9 {
@@ -85,7 +92,7 @@ func plusOne(digits []int) []int {
 	return append([]int{1}, digits...)
 }
 
-/*
+/* 遇到的问题
 	数组倒序的方法
 	1、从后往前便利；
 	for i := len(digits) - 1; i >= 0; i-- {}
@@ -108,6 +115,9 @@ func plusOne(digits []int) []int {
 		copy(news[1:], slice)
 */
 
+
+
+// 最长公共前缀
 func longestCommonPrefix(strs []string) string {
 	prefix := strs[0]
 	for k := 0; k < len(strs); k++ {
@@ -124,7 +134,7 @@ func longestCommonPrefix(strs []string) string {
 	return prefix
 }
 
-/*
+/*  遇到的问题
 字符串 切分： strings.Split("a,b,c", ",")      // ["a", "b", "c"]
 字符串 拼接： strings.Join([]string{"a", "b", "c"}, "-") // "a-b-c"
 字符串 子串： strings.Contains(s, "word")   返回bool
@@ -137,6 +147,8 @@ strconv :  Atoi 转 int   Itoa 转字符串
 strings.TrimSpace(s)
 */
 
+
+// 回文数
 func isPalindrome(x int) bool {
 	if (x < 0) || (x%10 == 0) {
 		return false
@@ -151,6 +163,7 @@ func isPalindrome(x int) bool {
 	return rev == x || rev == x/10
 }
 
+// 只出现一次的数字
 func singleNumber(nums []int) int {
 	if len(nums) == 0 {
 		return 0

@@ -104,3 +104,9 @@ func (u * User) placeOrder(products []*Product) *Order{
 
 
 
+//  struct 相当于一个类
+// func (c *CreditCardPayment) refund (amount float64) string { 相当于 给这个类 加个 方法
+// type PaymentStratey interface {  定义一个接口
+// go 中 继承 是组合的方式实现
+// 没有抽象类
+// 各个模块可以灵活 嫁接 使用不同的拼装方式 实现起来灵活多样
